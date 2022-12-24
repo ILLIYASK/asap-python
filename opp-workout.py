@@ -49,38 +49,94 @@
 
 # 2.1 Create a Python class Person with attributes: name and age of type string.
 
-class person:
+# class person:
+#
+#     def __init__(self,name,age):
+#         self.name=name
+#         self.age=age
+#     # Create a display() method that displays the name and age of an object
+#     # created via the Person class.
+#     def display(self):
+#         print(f"name : {self.name} \n "
+#               f"age : {self.age}")
+#
+#
+# per=person("sam ",20)
+# per.display()
+#
+#
+# # Create a child class Student  which inherits from the Person class
+# # and which also has a section attribute
+# class student(person):
+#     def __init__(self,name,age,section):
+#         person.__init__(self,name,age)
+#         self.section=section
+#
+#         # Create a method displayStudent() that displays the name,
+#         # age and section of an object created via the Student class.
+#     def displayStudent(self):
+#         print(f"name : {self.name} \n"
+#               f"age : {self.age}"
+#               f"section : {self.section}")
+#
+# print("\n")
+# std=student("abu",12,"physics")
+# std.displayStudent()
 
-    def __init__(self,name,age):
+
+# EXCERCISE 3
+# 3.1
+# Create a Python class called BankAccount which represents a bank account, having as attributes:
+# accountNumber (numeric type), name (name of the account owner as string type), balance
+
+class BnakAccount:
+
+    #3.2
+    # Create a constructor with parameters: accountNumber, name, balance.
+    def __init__(self,accountnumber,name,balance):
+        self.accountnumber=accountnumber
         self.name=name
-        self.age=age
-    # Create a display() method that displays the name and age of an object
-    # created via the Person class.
+        self.balance=balance
+
+        # 3.3
+    # Create a Deposit() method which manages the deposit actions.
+    def deposit(self):
+        amount=int(input("Enter amount for deposit"))
+        self.balance += amount
+
+    # 3.4
+    # Create a Withdrawal() method  which manages withdrawals actions.
+
+    def withdraw(self):
+        amount=int(input("Enter withdrawal amount"))
+        if self.balance<amount:
+            print("enough balance")
+        else:
+            self.balance -= amount
+
+    # 3.5
+    # Create an bankFees() method to apply the bank fees with a percentage
+    # of 5% of the balance account.
+
+    def bankfees(self):
+
+        self.balance -= (.05*self.balance)
+
+    # 3.6
+    # Create a display() method to display account details.
+
     def display(self):
-        print(f"name : {self.name} \n "
-              f"age : {self.age}")
+        print(f"AccountNumber : {self.accountnumber} \n"
+              f"Name : {self.name} \n"
+              f"Balance : {self.balance}")
 
 
-per=person("sam ",20)
-per.display()
+# 3.7
+# Give the complete code for the  BankAccount class.
 
+costomer1=BnakAccount(123456789,"Illiyas",50000)
 
-# Create a child class Student  which inherits from the Person class
-# and which also has a section attribute
-class student(person):
-    def __init__(self,name,age,section):
-        person.__init__(self,name,age)
-        self.section=section
-
-        # Create a method displayStudent() that displays the name,
-        # age and section of an object created via the Student class.
-    def displayStudent(self):
-        print(f"name : {self.name} \n"
-              f"age : {self.age}"
-              f"section : {self.section}")
-
-print("\n")
-std=student("abu",12,"physics")
-std.displayStudent()
-
-
+costomer1.deposit()
+costomer1.withdraw()
+costomer1.bankfees()
+costomer1.display()
