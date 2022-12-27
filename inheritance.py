@@ -2,25 +2,28 @@
 
 
 
-# hierarchical inheritance
+# multi level inheritance
 #
-class perant:
+class grandparent:
+    gf="grandfather"
+    gm="grandmother"
+
+    def printdel(self):
+        print(self.gf,self.gm)
+class parent(grandparent):
     f="father"
     m="mother"
-    def parent_details(self):
-        print(self.f)
-        print(self.m)
-class child1(perant):
-    c1="abc"
-    def printdet(self):
-        print(self.c1)
-class child2(perant):
-    c2="def"
-    def prinndet(self):
-        print(self.c2)
-obj1=child1()
-obj2=child2()
-obj1.parent_details()
-obj1.printdet()
-obj2.parent_details()
-obj2.prinndet()
+
+    def printdel(self):
+        print(self.f,self.m)
+class child(parent):
+    c="child"
+    def printdel(self):
+        grandparent.printdel(self)
+        parent.printdel(self)
+        print(self.c)
+
+
+obj=child()
+
+obj.printdel()
