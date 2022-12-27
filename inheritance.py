@@ -1,29 +1,23 @@
 # inheritance
 
+# multiple inheritance
 
-
-# multi level inheritance
-#
-class grandparent:
-    gf="grandfather"
-    gm="grandmother"
-
-    def printdel(self):
-        print(self.gf,self.gm)
-class parent(grandparent):
+class father:
     f="father"
+    def printdet(self):
+        print(self.f)
+class mother:
     m="mother"
-
-    def printdel(self):
-        print(self.f,self.m)
-class child(parent):
+    def printdet(self):
+        print(self.m)
+class child(father,mother):
     c="child"
-    def printdel(self):
-        grandparent.printdel(self)
-        parent.printdel(self)
+    def printdet(self):
+        father.printdet(self)
+        mother.printdet(self)
         print(self.c)
 
-
 obj=child()
+obj.printdet()
 
-obj.printdel()
+
